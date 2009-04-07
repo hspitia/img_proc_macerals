@@ -33,6 +33,7 @@
   <valuemap type="QVariantMap" >
    <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString" >Debug</value>
    <value key="QtVersionId" type="int" >0</value>
+   <value key="addQDumper" type="" ></value>
    <value key="buildDirectory" type="QString" >C:\tempo\QtProjects\Carbonizado</value>
   </valuemap>
  </data>
@@ -41,6 +42,7 @@
   <valuemap type="QVariantMap" >
    <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString" >Release</value>
    <value key="QtVersionId" type="int" >0</value>
+   <value key="addQDumper" type="" ></value>
   </valuemap>
  </data>
  <data>
@@ -61,6 +63,7 @@
     <value type="QString" >COMSPEC=C:\Windows\system32\cmd.exe</value>
     <value type="QString" >CONFIGSETROOT=C:\Windows\ConfigSetRoot</value>
     <value type="QString" >FP_NO_HOST_CHECK=NO</value>
+    <value type="QString" >GIT_SSH=C:\tempo\SSH\plink.exe</value>
     <value type="QString" >HOMEDRIVE=C:</value>
     <value type="QString" >HOMEPATH=\Users\luzma</value>
     <value type="QString" >LOCALAPPDATA=C:\Users\luzma\AppData\Local</value>
@@ -97,7 +100,7 @@
     <value type="QString" >CONFIG+=debug_and_release</value>
    </valuelist>
    <value key="abstractProcess.command" type="QString" >C:/Qt/2009.01/qt/bin/qmake.exe</value>
-   <value key="abstractProcess.enabled" type="bool" >false</value>
+   <value key="abstractProcess.enabled" type="bool" >true</value>
    <value key="abstractProcess.workingDirectory" type="QString" >C:/tempo/QtProjects/Carbonizado</value>
    <value key="buildConfiguration" type="int" >10</value>
   </valuemap>
@@ -114,6 +117,7 @@
     <value type="QString" >COMSPEC=C:\Windows\system32\cmd.exe</value>
     <value type="QString" >CONFIGSETROOT=C:\Windows\ConfigSetRoot</value>
     <value type="QString" >FP_NO_HOST_CHECK=NO</value>
+    <value type="QString" >GIT_SSH=C:\tempo\SSH\plink.exe</value>
     <value type="QString" >HOMEDRIVE=C:</value>
     <value type="QString" >HOMEPATH=\Users\luzma</value>
     <value type="QString" >LOCALAPPDATA=C:\Users\luzma\AppData\Local</value>

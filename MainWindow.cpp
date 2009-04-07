@@ -110,7 +110,7 @@ void MainWindow::on_piritaColorBtn_clicked()
 
 QString MainWindow::pathToDirectory()
 {
-  return QFileDialog::getExistingDirectory(this, tr("Directorio de entrada"),
+  return QFileDialog::getExistingDirectory(this, tr("Seleccione un directorio"),
                                             ".",
                                             QFileDialog::ShowDirsOnly
                                             | QFileDialog::DontResolveSymlinks);
