@@ -8,7 +8,7 @@ MainWindow::MainWindow(QWidget *parent)
   inDir="";
   outDir="";
   vitrinitaColor = QColor(0,0,255);
-  liptinitaColor = QColor(255,0,0);
+  leptinitaColor = QColor(255,0,0);
   inertinitaColor = QColor(255,255,255);
   piritaColor = QColor(255,255,0);
   objSegmentation = new Segmentation();
@@ -57,11 +57,11 @@ void MainWindow::on_executeBtn_clicked()
 			  //cout<<"Fluo "<<time<<endl;
 			  if(time == 2)
 			  {
-				objSegmentation->segment1(inGrayImage,outImage,vitrinitaColor,liptinitaColor,piritaColor);
+				objSegmentation->segment1(inGrayImage,outImage,vitrinitaColor,leptinitaColor,piritaColor);
 			  }
 			  else if(time == 3)
 			  {
-			  	objSegmentation->segment2(inGrayImage,outImage,vitrinitaColor,liptinitaColor,piritaColor);
+			  	objSegmentation->segment2(inGrayImage,outImage,vitrinitaColor,leptinitaColor,piritaColor);
 			  }
 			}
 			else if(name.indexOf("Refle")>=0)
@@ -92,9 +92,9 @@ void MainWindow::on_vitrinitaColorBtn_clicked()
     vitrinitaColor = chooseMineralColor(vitrinitaColor);
 }
 
-void MainWindow::on_liptinitaColorBtn_clicked()
+void MainWindow::on_leptinitaColorBtn_clicked()
 {
-  liptinitaColor = chooseMineralColor(liptinitaColor);
+  leptinitaColor = chooseMineralColor(leptinitaColor);
 }
 
 void MainWindow::on_inertinitaColorBtn_clicked()

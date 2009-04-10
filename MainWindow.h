@@ -27,7 +27,7 @@ private:
     QString inDir;
     QString outDir;
     QColor vitrinitaColor;
-    QColor liptinitaColor;
+    QColor leptinitaColor;
     QColor inertinitaColor;
     QColor piritaColor;
 	Image* inImage;
@@ -40,7 +40,7 @@ private:
 
 private slots:
     void on_vitrinitaColorBtn_clicked();
-    void on_liptinitaColorBtn_clicked();
+    void on_leptinitaColorBtn_clicked();
     void on_inertinitaColorBtn_clicked();
     void on_piritaColorBtn_clicked();
     void on_exitBtn_clicked();
