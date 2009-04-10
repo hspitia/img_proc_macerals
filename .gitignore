@@ -1,0 +1,9 @@
+# Lines starting with '#' are considered comments.
+# Ignore windows executables
+*.exe
+# Ignore object files 
+*.o
+# Ignore ppm image files
+*.ppm
+# Ignore pgm image files
+*.pgm
