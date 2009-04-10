@@ -7,3 +7,5 @@
 *.ppm
 # Ignore pgm image files
 *.pgm
+# Ignore bat files
+*.bat
