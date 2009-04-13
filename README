@@ -1,1 +1,4 @@
-Proyecto escolar sobre reconocimiento automatico de minerales en imagenes usando tecnicas de segmentacion. 
+Proyecto escolar sobre reconocimiento automatico de minerales en imagenes 
+usando tecnicas de segmentacion.
+
+En especial, esta rama realiza segmentacion a traves clusterizacion con Kmeans.

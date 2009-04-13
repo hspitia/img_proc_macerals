@@ -43,6 +43,7 @@ class Array {
 		}
 		
 		void setSize(const int & sizeValue){
+			
 			if (array) delete [] array;
 			if (sizeValue > 0){
 				array = new T[sizeValue];
@@ -58,6 +59,7 @@ class Array {
 		
 		T operator[](const int & index) const{
 			require(index >= 0 && index < size, "Array::operator[]. IndexOutOfBounds\n");
+			
 			return array[index];
 		}
 		

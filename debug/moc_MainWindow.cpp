@@ -1,8 +1,8 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'MainWindow.h'
 **
-** Created: Tue 7. Apr 08:30:37 2009
-**      by: The Qt Meta Object Compiler version 61 (Qt 4.5.0)
+** Created: Thu 9. Apr 22:31:31 2009
+**      by: The Qt Meta Object Compiler version 59 (Qt 4.4.3)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
@@ -10,8 +10,8 @@
 #include "../MainWindow.h"
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'MainWindow.h' doesn't include <QObject>."
-#elif Q_MOC_OUTPUT_REVISION != 61
-#error "This file was generated using the moc from 4.5.0. It"
+#elif Q_MOC_OUTPUT_REVISION != 59
+#error "This file was generated using the moc from 4.4.3. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
@@ -20,13 +20,12 @@ QT_BEGIN_MOC_NAMESPACE
 static const uint qt_meta_data_MainWindow[] = {
 
  // content:
-       2,       // revision
+       1,       // revision
        0,       // classname
        0,    0, // classinfo
-       8,   12, // methods
+       8,   10, // methods
        0,    0, // properties
        0,    0, // enums/sets
-       0,    0, // constructors
 
  // slots: signature, parameters, type, tag, flags
       12,   11,   11,   11, 0x08,
@@ -43,7 +42,7 @@ static const uint qt_meta_data_MainWindow[] = {
 
 static const char qt_meta_stringdata_MainWindow[] = {
     "MainWindow\0\0on_vitrinitaColorBtn_clicked()\0"
-    "on_leptinitaColorBtn_clicked()\0"
+    "on_liptinitaColorBtn_clicked()\0"
     "on_inertinitaColorBtn_clicked()\0"
     "on_piritaColorBtn_clicked()\0"
     "on_exitBtn_clicked()\0on_executeBtn_clicked()\0"
@@ -77,14 +76,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_c == QMetaObject::InvokeMetaMethod) {
         switch (_id) {
         case 0: on_vitrinitaColorBtn_clicked(); break;
-        case 1: on_leptinitaColorBtn_clicked(); break;
+        case 1: on_liptinitaColorBtn_clicked(); break;
         case 2: on_inertinitaColorBtn_clicked(); break;
         case 3: on_piritaColorBtn_clicked(); break;
         case 4: on_exitBtn_clicked(); break;
         case 5: on_executeBtn_clicked(); break;
         case 6: on_browseOutBtn_clicked(); break;
         case 7: on_browseInBtn_clicked(); break;
-        default: ;
         }
         _id -= 8;
     }

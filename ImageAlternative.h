@@ -21,10 +21,10 @@ class ImageAlternative
 		ImageAlternative(const ImageAlternative & imageObject);
 		ImageAlternative(const QString & fileName);
 		ImageAlternative(	const int & width,
-						const int & height,
-						format_t format,
-						const int & maxLevel,
-						const int & backgroundLevel);
+											const int & height,
+											format_t format,
+											const int & maxLevel,
+											const int & backgroundLevel);
 		
 		virtual ~ImageAlternative();
 		
