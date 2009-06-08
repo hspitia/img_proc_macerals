@@ -9,6 +9,14 @@
 *.pgm
 # Ignore bat files
 *.bat
+# Ignore makefile files
+Makefile*
+# Ignore pro files
+*.pro
+#Ignore matlab files
+*.m
+#Ignore text files
 *.txt
-*.ppm
-*.pgm
+#Ignore png image files
+*.PNG
+
