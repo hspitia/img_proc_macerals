@@ -38,7 +38,7 @@ class ImageAlternative
 		virtual void setPixel(const int & x, const int & y, const int & red, const int & green, const int & blue);
 		
 		virtual int getPixel(const int & x, const int & y);
-		virtual void getPixel(const int & x, const int & y, int & green, int & red, int & blue);
+		virtual void getPixel(const int & x, const int & y, int & red, int & green, int & blue);
 		
 		virtual int getRows();
 		virtual int getCols();

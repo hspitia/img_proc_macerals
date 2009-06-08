@@ -272,7 +272,7 @@ void ImageAlternative::setPixel(	const int & x,
 	matrix->setAt(x, trueY, lut.at(red));
 	matrix->setAt(x, trueY+1, lut.at(green));
 	matrix->setAt(x, trueY+2, lut.at(blue));
-}
+} 
 
 int ImageAlternative::getPixel(const int & x, const int & y)
 {
@@ -289,7 +289,7 @@ int ImageAlternative::getPixel(const int & x, const int & y)
 
 }
 
-void ImageAlternative::getPixel(const int & x, const int & y, int & green, int & red, int & blue)
+void ImageAlternative::getPixel(const int & x, const int & y, int & red, int & green, int & blue)
 {
 	if ( ((x < 0) || (x > rows)) || (((y < 0) || (y > cols))) )	{
 		cerr<<" ImageAlternative::getPixel:: IndexOutOfBounds ["<< x<<"]["<< y<<"] in ["<<rows<<"]["<<cols<<"]"<<endl;

@@ -9,3 +9,6 @@
 *.pgm
 # Ignore bat files
 *.bat
+*.txt
+*.ppm
+*.pgm

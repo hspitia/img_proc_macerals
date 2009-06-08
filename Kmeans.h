@@ -20,6 +20,7 @@ class Kmeans {
 		int numClasses;
 		ImageAlternative* image;
 		QVector<QColor> centroids;
+    
 	public:
 		double distance(	QColor & pixel1, QColor & pixel2);
 		int indexOfMin(QVector<double> & elementsVector);

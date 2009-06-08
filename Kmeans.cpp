@@ -27,7 +27,7 @@ QVector<int> Kmeans::execute(){
 	QVector<int> pixelsClassifiedNew(size,0); //pixels classification QVector
 	QVector<int> classesCounter(numClasses,0);
 	QVector<int> classesCounterNew(numClasses,0);
-	
+	QVector<QColor> tmpCentroids(numClasses);
 	// // Initial classification
 	// int classIdx = 0;
 	// int numPixelsPerClass = (int) size / numClasses;
@@ -89,6 +89,9 @@ QVector<int> Kmeans::execute(){
 				classesCounterNew[minDistanceIdx]++;
 			}
 		}
+    
+    
+    
 		//new centroids calculation
 		int maxLevel = image->getMaxLevel();
 		for(int i = 0; i < numClasses; ++i){
@@ -100,11 +103,12 @@ QVector<int> Kmeans::execute(){
 			// r = (int) sumPixelsR[i] / classesCounterNew[i];
 			// g = (int) sumPixelsG[i] / classesCounterNew[i];
 			// b = (int) sumPixelsB[i] / classesCounterNew[i];
-			tmpPixel = QColor(r, g, b);
-			centroids[i] = tmpPixel;
+			// tmpPixel = QColor(r, g, b);
+			// centroids[i] = tmpPixel;
+      tmpCentroids[i] = QColor(r, g, b);
 		}
 		
-		cout<<"new centroids: ";
+		cout<<"Old centroids: ";
 		for(int i = 0; i < centroids.size(); ++i){
 			cout<<"("
 					<<centroids[i].red()<<", "
@@ -114,6 +118,16 @@ QVector<int> Kmeans::execute(){
 		}
 		cout<<endl;
 		
+    cout<<"New centroids: ";
+		for(int i = 0; i < centroids.size(); ++i){
+			cout<<"("
+					<<tmpCentroids[i].red()<<", "
+					<<tmpCentroids[i].green()<<", "
+					<<tmpCentroids[i].blue()
+					<<")";
+		}
+		cout<<endl;
+    
 		// Evaluate changes in classifications
 		// Counting of classes that are equals in size
 		int classesEquals = 0;
@@ -135,9 +149,22 @@ QVector<int> Kmeans::execute(){
 			
 			if(pars == size) exit = true;
 		}
+    
+    
+    
+    
 		pixelsClassified = QVector<int>(pixelsClassifiedNew);
 		classesCounter = QVector<int>(classesCounterNew);
 		
+    
+    /*//New approach to stop the cycle
+    if (centroids == tmpCentroids) exit = true;
+    else {
+      pixelsClassified = QVector<int>(pixelsClassifiedNew);
+      classesCounter = QVector<int>(classesCounterNew);
+    }
+    */
+    
 		counter++;
 		cout<<"  -  contador: "<<counter<<"  - ";
 		
@@ -148,7 +175,7 @@ QVector<int> Kmeans::execute(){
 
 int Kmeans::indexOfMin(QVector<double> & elementsVector){
 	// sort(elementsVector.begin(), elementsVector.end());
-	require(elementsVector.size() > 0, "Kmeans::min. Error. The size of elementsVector must be greater than 0");
+	require(elementsVector.size() > 0, "Kmeans::indexOfMin. Error. The size of elementsVector must be greater than 0");
 	int minIdx = 0;
 	double min = elementsVector[0];
 	
