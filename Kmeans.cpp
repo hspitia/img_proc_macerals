@@ -4,6 +4,7 @@ Kmeans::Kmeans(){
 	this->numClasses = 0;
 	this->image = NULL;
 	this->centroids = QVector<QColor> ();
+  this->removedCentroids = QVector<int> ();
 }
 
 
@@ -11,6 +12,14 @@ Kmeans::Kmeans(const int & numClasses, ImageAlternative * image){
 	this->numClasses = numClasses;
 	this->image = image;
 	this->centroids = QVector<QColor> (numClasses);
+  this->removedCentroids = QVector<int> ();
+}
+
+Kmeans::Kmeans(QVector<QColor> centroids, ImageAlternative * image){
+	this->numClasses = centroids.size();
+	this->image = image;
+	this->centroids = centroids;
+  this->removedCentroids = QVector<int> ();
 }
 
 Kmeans::~Kmeans(){
@@ -50,22 +59,23 @@ QVector<int> Kmeans::execute(){
 	int r = 0;
 	int g = 0;
 	int b = 0;
-	QVector<double> distancesToCentroids (numClasses);
+	
 	
 	int counter = 0;
 	do {
-		
 		QVector<double> sumPixelsR(numClasses,0);
 		QVector<double> sumPixelsG(numClasses,0);
 		QVector<double> sumPixelsB(numClasses,0);
+    QVector<double> distancesToCentroids (numClasses);
 		classesCounterNew = QVector<int>(numClasses,0);
 		
 		// Pixels classification according to minimum distance to centroids
-			
+    
 		// Cycle through the pixels of image
 		for(int i = 0; i < image->getHeight(); ++i){
 			for(int j = 0; j < image->getWidth(); ++j){
 				image->getPixel(i, j, r, g, b);
+        // cout << "\nCAZANDO" << endl;
 				tmpPixel = QColor(r, g, b);
 				
 				// cout<<setw(5)<<counter++<<" - pixel: "<<tmpPixel<< " distances: ";
@@ -90,8 +100,25 @@ QVector<int> Kmeans::execute(){
 			}
 		}
     
+    int removed = 0;
+    for(int i = 0; i < numClasses; ++i){
+      if(classesCounterNew[i] == 0){
+        centroids.remove(i);
+        sumPixelsR.remove(i);
+        sumPixelsG.remove(i);
+        sumPixelsB.remove(i);
+        removedCentroids.append(i);
+        ++removed;
+      }
+    }
     
+    for(int i = 0; i < removed; ++i){
+      classesCounterNew.remove(removedCentroids[i]);
+      classesCounter.remove(removedCentroids[i]);
+    }
     
+    numClasses -= removed;
+
 		//new centroids calculation
 		int maxLevel = image->getMaxLevel();
 		for(int i = 0; i < numClasses; ++i){
@@ -128,14 +155,16 @@ QVector<int> Kmeans::execute(){
 		}
 		cout<<endl;
     
+    
+    /*
 		// Evaluate changes in classifications
 		// Counting of classes that are equals in size
 		int classesEquals = 0;
 		for(int i = 0; i < numClasses; ++i){
-			cout << "claseNew "<<i<<": "<< classesCounterNew[i]<< "  clase "<<i<<": "<< classesCounter[i]<< endl;
+			cout << "classesCounterNew "<<i<<": "<< classesCounterNew[i]<< "  classesCounter "<<i<<": "<< classesCounter[i]<< endl;
 			if(classesCounter[i] == classesCounterNew[i]) classesEquals++;
 		}
-		cout<<"clases iguales: "<<classesEquals;
+		cout << "clases iguales: " << classesEquals;
 		// Changes in the sizes of classes?
 		if(classesEquals == numClasses){
 			cout<<"\nentro: SI"<<endl;
@@ -143,35 +172,40 @@ QVector<int> Kmeans::execute(){
 			int pars = 0;
 			for(int i = 0; i < size; ++i){
 				// cout << "pixelsClassified: "<<pixelsClassified[i]<<"  pixelsClassifiedNew: "<<pixelsClassifiedNew[i] << endl;
-				if(pixelsClassified[i] == pixelsClassifiedNew[i]) pars++;
+        // cout << "Antes" << endl;
+				if(pixelsClassified[i] == pixelsClassifiedNew[i]) {
+          pars++;
+          // cout << "Despues" << endl;
+        }
 				else break;
 			}
 			
 			if(pars == size) exit = true;
 		}
     
-    
-    
-    
 		pixelsClassified = QVector<int>(pixelsClassifiedNew);
 		classesCounter = QVector<int>(classesCounterNew);
-		
+		*/
     
-    /*//New approach to stop the cycle
+    
+    //New approach to stop the cycle
     if (centroids == tmpCentroids) exit = true;
     else {
+      centroids = QVector<QColor>(tmpCentroids);
       pixelsClassified = QVector<int>(pixelsClassifiedNew);
       classesCounter = QVector<int>(classesCounterNew);
     }
-    */
+    
     
 		counter++;
 		cout<<"  -  contador: "<<counter<<"  - ";
 		
-	} while(exit != true);
+	// } while(exit != true);
+	} while(counter < 2);
 	
 	return pixelsClassifiedNew;
 }
+
 
 int Kmeans::indexOfMin(QVector<double> & elementsVector){
 	// sort(elementsVector.begin(), elementsVector.end());
@@ -227,4 +261,7 @@ void Kmeans::setCentroids(const QVector<QColor> & centroidsValue)
   centroids = centroidsValue;
 }
 
-
+QVector<int> Kmeans::getRemovedCentroids()
+{
+	return removedCentroids;
+}

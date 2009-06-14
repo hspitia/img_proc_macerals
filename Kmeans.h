@@ -20,6 +20,9 @@ class Kmeans {
 		int numClasses;
 		ImageAlternative* image;
 		QVector<QColor> centroids;
+    QVector<int> removedCentroids;
+
+
     
 	public:
 		double distance(	QColor & pixel1, QColor & pixel2);
@@ -29,6 +32,7 @@ class Kmeans {
 	public:
 		Kmeans();
 		Kmeans(const int & numClasses, ImageAlternative * image);
+    Kmeans(QVector<QColor> centroids, ImageAlternative * image);
 		virtual ~Kmeans();
 		
 		int getNumClasses();
@@ -37,7 +41,8 @@ class Kmeans {
 		void setImage(ImageAlternative* imageValue);
 		QVector<QColor> getCentroids();
 		void setCentroids(const QVector<QColor> & centroidsValue);
-		
+		QVector<int> getRemovedCentroids();
+
 		QVector<int> execute();
 		
 	
